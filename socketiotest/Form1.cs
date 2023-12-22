@@ -231,16 +231,16 @@ namespace socketiotest
             {
                 Cursor.Current = Cursors.WaitCursor;
 
-                client = new SocketIOClient.SocketIO("http://46.28.111.31:2021/", new SocketIOOptions
+                /*client = new SocketIOClient.SocketIO("http://46.28.111.31:2021/", new SocketIOOptions
                 {                    
                     EIO = 3                    
-                });
+                });*/
 
 
-                /*client = new SocketIOClient.SocketIO("http://127.0.0.1:2021/", new SocketIOOptions
+                client = new SocketIOClient.SocketIO("http://127.0.0.1:2021/", new SocketIOOptions
                 {
                     EIO = 3
-                });*/
+                });
 
                 //client = new SocketIOClient.SocketIO("http://46.28.111.31:3001/");
 
