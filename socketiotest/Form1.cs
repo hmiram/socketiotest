@@ -131,7 +131,7 @@ namespace socketiotest
             }
             else
             {
-                rtLog.Text += text + "\n";
+                rtLog.Text += "Receive: " + text + "\n";
 
                 
                 
@@ -231,16 +231,24 @@ namespace socketiotest
             {
                 Cursor.Current = Cursors.WaitCursor;
 
+
+                //socketio.inrs.cz:2020176.98.244.77:
+
+                client = new SocketIOClient.SocketIO("https://socketio.inrs.cz:2020/", new SocketIOOptions
+                {
+                    EIO = SocketIO.Core.EngineIO.V3
+                });
+
                 /*client = new SocketIOClient.SocketIO("http://46.28.111.31:2021/", new SocketIOOptions
                 {                    
                     EIO = 3                    
                 });*/
 
 
-                client = new SocketIOClient.SocketIO("http://127.0.0.1:2021/", new SocketIOOptions
+                /*client = new SocketIOClient.SocketIO("http://127.0.0.1:2021/", new SocketIOOptions
                 {
                     EIO = 3
-                });
+                });*/
 
                 //client = new SocketIOClient.SocketIO("http://46.28.111.31:3001/");
 
@@ -278,6 +286,9 @@ namespace socketiotest
                 string s = client.HttpClient.ToString();
 
                 await client.ConnectAsync();
+
+                rtLog.Text += "Pripojeni OK\n";
+
 
                 bool connetOk = true;
             }
@@ -318,13 +329,13 @@ namespace socketiotest
         {
             if (client == null)
             {
-                rtLog.Text += "Neni pripojeno k serveru";
+                rtLog.Text += "Neni pripojeno k serveru\n";
                 return; 
             }
 
             if (!client.Connected)
             {
-                rtLog.Text += "Neni pripojeno k serveru";
+                rtLog.Text += "Neni pripojeno k serveru\n";
                 return;
             }
 
@@ -351,6 +362,8 @@ namespace socketiotest
                     { "domain", Config.Domain }
                 };
 
+
+            rtLog.Text += "Send: " + JsonConvert.SerializeObject(points, Formatting.Indented) + "\n";
 
             await client.EmitAsync("solarko_started", JsonConvert.SerializeObject(points, Formatting.Indented));
 
