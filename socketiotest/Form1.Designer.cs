@@ -42,6 +42,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblDelegate2 = new System.Windows.Forms.Label();
+            this.btnS1Stop = new System.Windows.Forms.Button();
+            this.btnS2Stop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +71,7 @@
             this.textBox1.AutoSize = true;
             this.textBox1.Location = new System.Drawing.Point(952, 439);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 15);
+            this.textBox1.Size = new System.Drawing.Size(48, 13);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "textBox1";
             // 
@@ -81,6 +83,7 @@
             this.btnSend.TabIndex = 3;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Visible = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // lblDelegate
@@ -88,7 +91,7 @@
             this.lblDelegate.AutoSize = true;
             this.lblDelegate.Location = new System.Drawing.Point(952, 473);
             this.lblDelegate.Name = "lblDelegate";
-            this.lblDelegate.Size = new System.Drawing.Size(70, 15);
+            this.lblDelegate.Size = new System.Drawing.Size(60, 13);
             this.lblDelegate.TabIndex = 4;
             this.lblDelegate.Text = "lblDelegate";
             // 
@@ -97,7 +100,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 15);
+            this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "S1";
             // 
@@ -106,7 +109,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(21, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 15);
+            this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "S2";
             // 
@@ -135,7 +138,7 @@
             this.lblS1Info.AutoSize = true;
             this.lblS1Info.Location = new System.Drawing.Point(23, 57);
             this.lblS1Info.Name = "lblS1Info";
-            this.lblS1Info.Size = new System.Drawing.Size(55, 15);
+            this.lblS1Info.Size = new System.Drawing.Size(48, 13);
             this.lblS1Info.TabIndex = 11;
             this.lblS1Info.Text = "lblS1Info";
             // 
@@ -144,12 +147,13 @@
             this.lblS2Info.AutoSize = true;
             this.lblS2Info.Location = new System.Drawing.Point(21, 62);
             this.lblS2Info.Name = "lblS2Info";
-            this.lblS2Info.Size = new System.Drawing.Size(55, 15);
+            this.lblS2Info.Size = new System.Drawing.Size(48, 13);
             this.lblS2Info.TabIndex = 12;
             this.lblS2Info.Text = "lblS2Info";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnS1Stop);
             this.groupBox1.Controls.Add(this.lblS1Info);
             this.groupBox1.Controls.Add(this.btnS1Start);
             this.groupBox1.Controls.Add(this.label1);
@@ -162,6 +166,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnS2Stop);
             this.groupBox2.Controls.Add(this.lblS2Info);
             this.groupBox2.Controls.Add(this.btnS2Start);
             this.groupBox2.Controls.Add(this.label2);
@@ -177,9 +182,29 @@
             this.lblDelegate2.AutoSize = true;
             this.lblDelegate2.Location = new System.Drawing.Point(952, 515);
             this.lblDelegate2.Name = "lblDelegate2";
-            this.lblDelegate2.Size = new System.Drawing.Size(77, 15);
+            this.lblDelegate2.Size = new System.Drawing.Size(66, 13);
             this.lblDelegate2.TabIndex = 15;
             this.lblDelegate2.Text = "lblDelegate2";
+            // 
+            // btnS1Stop
+            // 
+            this.btnS1Stop.Location = new System.Drawing.Point(122, 86);
+            this.btnS1Stop.Name = "btnS1Stop";
+            this.btnS1Stop.Size = new System.Drawing.Size(75, 23);
+            this.btnS1Stop.TabIndex = 12;
+            this.btnS1Stop.Text = "S1 Stop";
+            this.btnS1Stop.UseVisualStyleBackColor = true;
+            this.btnS1Stop.Click += new System.EventHandler(this.btnS1Stop_Click);
+            // 
+            // btnS2Stop
+            // 
+            this.btnS2Stop.Location = new System.Drawing.Point(120, 91);
+            this.btnS2Stop.Name = "btnS2Stop";
+            this.btnS2Stop.Size = new System.Drawing.Size(75, 23);
+            this.btnS2Stop.TabIndex = 13;
+            this.btnS2Stop.Text = "S2 Stop";
+            this.btnS2Stop.UseVisualStyleBackColor = true;
+            this.btnS2Stop.Click += new System.EventHandler(this.btnS2Stop_Click);
             // 
             // Form1
             // 
@@ -221,6 +246,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblDelegate2;
+        private System.Windows.Forms.Button btnS1Stop;
+        private System.Windows.Forms.Button btnS2Stop;
     }
 }
 

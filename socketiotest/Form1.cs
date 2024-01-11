@@ -234,7 +234,8 @@ namespace socketiotest
 
                 //socketio.inrs.cz:2020176.98.244.77:
 
-                client = new SocketIOClient.SocketIO("https://socketio.inrs.cz:2020/", new SocketIOOptions
+                //client = new SocketIOClient.SocketIO("https://socketio.inrs.cz:2020/", new SocketIOOptions
+                client = new SocketIOClient.SocketIO("http://127.0.0.1:2020/", new SocketIOOptions
                 {
                     EIO = SocketIO.Core.EngineIO.V3
                 });
@@ -306,7 +307,7 @@ namespace socketiotest
         }
 
 
-        public async void Odeslat()
+        /*public async void Odeslat()
         {
 
             if ((client == null) || (!client.Connected))
@@ -323,11 +324,11 @@ namespace socketiotest
 
 
             await client.EmitAsync("solarko_started", JsonConvert.SerializeObject(points, Formatting.Indented));
-        }
+        }*/
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (client == null)
+            /*if (client == null)
             {
                 rtLog.Text += "Neni pripojeno k serveru\n";
                 return; 
@@ -340,7 +341,7 @@ namespace socketiotest
             }
 
             Odeslat();
-
+            */
 
         }
 
@@ -363,7 +364,7 @@ namespace socketiotest
                 };
 
 
-            rtLog.Text += "Send: " + JsonConvert.SerializeObject(points, Formatting.Indented) + "\n";
+            rtLog.Text += "Send solarko_started: " + JsonConvert.SerializeObject(points, Formatting.Indented) + "\n";
 
             await client.EmitAsync("solarko_started", JsonConvert.SerializeObject(points, Formatting.Indented));
 
@@ -371,6 +372,30 @@ namespace socketiotest
 
             //return true;
         }
+
+
+        public async void Stop(int i)
+        {
+
+
+            Dictionary<string, string> points = new Dictionary<string, string>
+                {
+                    { "id", Config.Id },
+                    { "token", Config.Token },
+                    { "rele_no", i.ToString() },
+                    { "domain", Config.Domain }
+                };
+
+
+            rtLog.Text += "Send solarko_stopped: " + JsonConvert.SerializeObject(points, Formatting.Indented) + "\n";
+
+            await client.EmitAsync("solarko_stopped", JsonConvert.SerializeObject(points, Formatting.Indented));
+
+            //Console.WriteLine("END");
+
+            //return true;
+        }
+
 
         private void btnS1Start_Click(object sender, EventArgs e)
         {
@@ -404,6 +429,40 @@ namespace socketiotest
                 rtLog.Text += ex.Message + "\n";
             }
             
+        }
+
+        private void btnS1Stop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!isConnect())
+                    throw new Exception("Nepripojeni");
+
+                Stop(1);
+
+            }
+            catch (Exception ex)
+            {
+                rtLog.Text += ex.Message + "\n";
+            }
+
+        }
+
+        private void btnS2Stop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!isConnect())
+                    throw new Exception("Nepripojeni");
+
+                Stop(2);
+
+            }
+            catch (Exception ex)
+            {
+                rtLog.Text += ex.Message + "\n";
+            }
+
         }
     }
 }
