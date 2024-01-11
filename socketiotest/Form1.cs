@@ -234,8 +234,8 @@ namespace socketiotest
 
                 //socketio.inrs.cz:2020176.98.244.77:
 
-                //client = new SocketIOClient.SocketIO("https://socketio.inrs.cz:2020/", new SocketIOOptions
-                client = new SocketIOClient.SocketIO("http://127.0.0.1:2020/", new SocketIOOptions
+                client = new SocketIOClient.SocketIO("https://socketio.inrs.cz:2020/", new SocketIOOptions
+                //client = new SocketIOClient.SocketIO("http://127.0.0.1:2020/", new SocketIOOptions
                 {
                     EIO = SocketIO.Core.EngineIO.V3
                 });
